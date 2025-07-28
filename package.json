@@ -1,10 +1,15 @@
 {
-  "name": "${PROJECT_NAME}",
+  "name": "dychova-hudba-ordzovianka",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Official website for Dychová Hudba Ordžovianka brass band",
+  "main": "index.html",
   "scripts": {
+    "start": "live-server --port=3000",
+    "build": "echo 'Build complete'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
 }
