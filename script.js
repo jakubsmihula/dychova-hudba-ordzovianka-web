@@ -63,11 +63,7 @@ let currentYear = currentDate.getFullYear();
 
 // Sample concert data
 const concerts = [
-    { date: '2024-12-15', title: 'Vianočný koncert', location: 'Kostol sv. Martina' },
-    { date: '2024-12-31', title: 'Silvestrovský koncert', location: 'Hlavné námestie' },
-    { date: '2025-01-20', title: 'Novoročný koncert', location: 'Koncertná sieň' },
-    { date: '2025-02-14', title: 'Valentínsky koncert', location: 'Mestský park' },
-    { date: '2025-03-15', title: 'Jarný koncert', location: 'Kultúrny dom' },
+    { date: '2025-08-08', title: 'Koncert Furmanovi - súkromný koncert', location: 'Ordzovany', time: '19:30 - 22:30' },
     { date: '2025-08-10', title: 'Letný koncert v Bardejove', location: 'Bardejov', time: '13:00 - 15:00' }
 ];
 
@@ -94,7 +90,8 @@ function generateCalendar(month, year) {
         dayHeader.className = 'calendar-day header';
         dayHeader.textContent = day;
         dayHeader.style.fontWeight = 'bold';
-        dayHeader.style.backgroundColor = '#f3f4f6';
+        dayHeader.style.backgroundColor = '#ffffff';
+        dayHeader.style.color = '#ff0000';
         calendarGrid.appendChild(dayHeader);
     });
     
@@ -148,17 +145,6 @@ nextMonthBtn.addEventListener('click', () => {
     }
     generateCalendar(currentMonth, currentYear);
     updateCalendarClickEvents();
-});
-
-// Social Links (placeholder for future functionality)
-document.querySelectorAll('.social-item').forEach(item => {
-    item.addEventListener('click', (e) => {
-        e.preventDefault();
-        const platform = item.querySelector('.social-text').textContent;
-        console.log(`Social link clicked: ${platform}`);
-        // Future: Add actual social media links here
-        alert(`Odkaz na ${platform} bude pridaný neskôr.`);
-    });
 });
 
 // Smooth scrolling for anchor links
