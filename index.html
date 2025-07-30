@@ -9,455 +9,461 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="./logo.png" alt="DH Ordzovianka" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline'; console.log('Logo failed to load');">
-                <i class="fas fa-music" style="display: none; margin-right: 0.5rem; font-size: 2rem; color: var(--secondary-red);"></i>
-                <span>DH Ordzovianka</span>
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <img src="./logo.png" alt="DH Ordzovianka" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline'; console.log('Logo failed to load');">
+            <i class="fas fa-music" style="display: none; margin-right: 0.5rem; font-size: 2rem; color: var(--secondary-red);"></i>
+            <span>DH Ordzovianka</span>
 
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link active">Domov</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#concerts" class="nav-link">Koncerty</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#offers" class="nav-link">Ponuky</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#history" class="nav-link">História</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Kontakt</a>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
         </div>
-    </nav>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#home" class="nav-link active">Domov</a>
+            </li>
+            <li class="nav-item">
+                <a href="#concerts" class="nav-link">Koncerty</a>
+            </li>
+            <li class="nav-item">
+                <a href="#offers" class="nav-link">Ponuky</a>
+            </li>
+            <li class="nav-item">
+                <a href="#history" class="nav-link">História</a>
+            </li>
+            <li class="nav-item">
+                <a href="#contact" class="nav-link">Kontakt</a>
+            </li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+</nav>
 
-    <!-- Home Section -->
-    <section id="home" class="section active">
-        <div class="hero">
-                    <div class="hero-content">
+<!-- Home Section -->
+<section id="home" class="section active">
+    <div class="hero">
+        <div class="hero-content">
             <div class="hero-logo">
                 <img src="./logo.png" alt="DH Ordzovianka" class="hero-logo-image" onerror="this.style.display='none'; console.log('Hero logo failed to load');">
             </div>
             <h1>DH Ordzovianka</h1>
             <p class="hero-subtitle">Tradícia, kvalita a vášeň pre hudbu</p>
-                <div class="hero-buttons">
-                    <a href="#" class="btn btn-primary" onclick="showSection('concerts'); updateActiveNavLink(document.querySelector('a[href=\'#concerts\']')); return false;">Najbližšie koncerty</a>
-                    <a href="#" class="btn btn-secondary" onclick="showSection('contact'); updateActiveNavLink(document.querySelector('a[href=\'#contact\']')); return false;">Kontaktujte nás</a>
-                </div>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary" onclick="showSection('concerts'); updateActiveNavLink(document.querySelector('a[href=\'#concerts\']')); return false;">Najbližšie koncerty</a>
+                <a href="#" class="btn btn-secondary" onclick="showSection('contact'); updateActiveNavLink(document.querySelector('a[href=\'#contact\']')); return false;">Kontaktujte nás</a>
             </div>
         </div>
+    </div>
 
-        <div class="news-section">
-            <div class="container">
-                <h2>Najnovšie informácie</h2>
-                <div class="news-grid">
-                    <div class="news-card">
-                        <div class="news-date">20. Decembra 2024</div>
-                        <h3>Nová webová stránka</h3>
-                        <p>Radi oznamujeme, že sme spustili našu novú webovú stránku! Teraz máte možnosť ľahko zistiť informácie o našich koncertoch, ponukách a histórii.</p>
-                        <a href="#" class="news-link" onclick="showSection('offers'); updateActiveNavLink(document.querySelector('a[href=\'#offers\']')); return false;">Pozrieť naše ponuky</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Concerts Section -->
-    <section id="concerts" class="section">
+    <div class="news-section">
         <div class="container">
-            <h2>Koncerty</h2>
-            <div class="concerts-content">
-                <div class="calendar-section">
-                    <h3>Kalendár koncertov</h3>
-                    <div class="calendar">
-                        <div class="calendar-header">
-                            <button class="calendar-nav" id="prevMonth">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <h4 id="currentMonth">December 2024</h4>
-                            <button class="calendar-nav" id="nextMonth">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                        </div>
-                        <div class="calendar-grid" id="calendarGrid">
-                            <!-- Calendar will be populated by JavaScript -->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="upcoming-concerts">
-                    <h3>Najbližšie koncerty</h3>
-                    <div class="concert-list">
-                        <div class="concert-item">
-                            <div class="concert-date">
-                                <span class="day">10</span>
-                                <span class="month">Aug</span>
-                            </div>
-                            <div class="concert-details">
-                                <h4>Letný koncert v Bardejove</h4>
-                                <p><i class="fas fa-clock"></i> 13:00 - 15:00</p>
-                                <p><i class="fas fa-map-marker-alt"></i> Bardejov</p>
-                                <p class="concert-description">Letný koncert v krásnom historickom meste Bardejov.</p>
-                            </div>
-                        </div>
-                    </div>
+            <h2>Najnovšie informácie</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-date">1. August 2025</div>
+                    <h3>Nová webová stránka</h3>
+                    <p>Radi oznamujeme, že sme spustili našu novú webovú stránku! Teraz máte možnosť ľahko zistiť informácie o našich koncertoch, ponukách a histórii.</p>
+                    <a href="#" class="news-link" onclick="showSection('offers'); updateActiveNavLink(document.querySelector('a[href=\'#offers\']')); return false;">Pozrieť naše ponuky</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Offers Section -->
-    <section id="offers" class="section">
-        <div class="container">
-            <h2>Naše ponuky</h2>
-            <div class="offers-content">
-                <div class="offers-grid">
-                    <div class="offer-card">
-                        <div class="offer-icon">
+<!-- Concerts Section -->
+<section id="concerts" class="section">
+    <div class="container">
+        <h2>Koncerty</h2>
+        <div class="concerts-content">
+            <div class="calendar-section">
+                <h3>Kalendár koncertov</h3>
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <button class="calendar-nav" id="prevMonth">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <h4 id="currentMonth">December 2024</h4>
+                        <button class="calendar-nav" id="nextMonth">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="calendar-grid" id="calendarGrid">
+                        <!-- Calendar will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="upcoming-concerts">
+                <h3>Najbližšie koncerty</h3>
+                <div class="concert-list">
+                    <div class="concert-item">
+                        <div class="concert-date">
+                            <span class="day">8</span>
+                            <span class="month">Aug</span>
+                        </div>
+                        <div class="concert-details">
+                            <h4>Koncert Furmanovi</h4>
+                            <p><i class="fas fa-clock"></i> 19:30 - 22:30</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Ordzovany</p>
+                            <p class="concert-description">Súkromný koncert</p>
+                        </div>
+                    </div>
+                    <div class="concert-item">
+                        <div class="concert-date">
+                            <span class="day">10</span>
+                            <span class="month">Aug</span>
+                        </div>
+                        <div class="concert-details">
+                            <h4>Letný koncert v Bardejove</h4>
+                            <p><i class="fas fa-clock"></i> 13:00 - 15:00</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Bardejov</p>
+                            <p class="concert-description">Letný koncert v krásnom historickom meste Bardejov.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Offers Section -->
+<section id="offers" class="section">
+    <div class="container">
+        <h2>Naše ponuky</h2>
+        <div class="offers-content">
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Koncerty</h3>
+                    <p>Profesionálne vystúpenia na rôznych kultúrnych podujatiach.</p>
+                    <div class="offer-details">
+                        <div class="offer-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Trvanie: 1-2 hodiny</span>
+                        </div>
+                        <div class="offer-detail">
                             <i class="fas fa-music"></i>
+                            <span>Repertoár: Ľudová hudba, tanečná hudba</span>
                         </div>
-                        <h3>Koncerty</h3>
-                        <p>Profesionálne vystúpenia na rôznych kultúrnych podujatiach, slávnostiach a oslavách.</p>
-                        <div class="offer-details">
-                            <div class="offer-detail">
-                                <i class="fas fa-clock"></i>
-                                <span>Trvanie: 1-2 hodiny</span>
-                            </div>
-                            <div class="offer-detail">
-                                <i class="fas fa-users"></i>
-                                <span>Repertoár: Klasická, populárna, folklórna hudba</span>
-                            </div>
-                            <div class="offer-detail">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Pôsobnosť: Bratislava a okolie</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="offer-card">
-                        <div class="offer-icon">
-                            <i class="fas fa-church"></i>
-                        </div>
-                        <h3>Pohreby</h3>
-                        <p>Dôstojné hudobné sprevádzanie na poslednú cestu s úctou k zosnulému a jeho rodine.</p>
-                        <div class="offer-details">
-                            <div class="offer-detail">
-                                <i class="fas fa-clock"></i>
-                                <span>Trvanie: 30-45 minút</span>
-                            </div>
-                            <div class="offer-detail">
-                                <i class="fas fa-music"></i>
-                                <span>Repertoár: Náboženské piesne, smutné melódie</span>
-                            </div>
-                            <div class="offer-detail">
-                                <i class="fas fa-calendar"></i>
-                                <span>Dostupnosť: 24/7</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="offer-card">
-                        <div class="offer-icon">
-                            <i class="fas fa-pray"></i>
-                        </div>
-                        <h3>Sväté omše</h3>
-                        <p>Hudobné sprevádzanie svätých omší a náboženských obradov v kostoloch.</p>
-                        <div class="offer-details">
-                            <div class="offer-detail">
-                                <i class="fas fa-clock"></i>
-                                <span>Trvanie: 60-90 minút</span>
-                            </div>
-                            <div class="offer-detail">
-                                <i class="fas fa-music"></i>
-                                <span>Repertoár: Náboženské piesne, gregoriánsky chorál</span>
-                            </div>
-                            <div class="offer-detail">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>Nedele a sviatky</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="offer-card">
-                        <div class="offer-icon">
-                            <i class="fas fa-birthday-cake"></i>
-                        </div>
-                        <h3>Oslavy a jubileá</h3>
-                        <p>Veselé hudobné sprevádzanie rôznych osláv, jubileí a rodinných udalostí.</p>
-                        <div class="offer-details">
-                            <div class="offer-detail">
-                                <i class="fas fa-clock"></i>
-                                <span>Trvanie: 1-2 hodiny</span>
-                            </div>
-                            <div class="offer-detail">
-                                <i class="fas fa-music"></i>
-                                <span>Repertoár: Populárna hudba, tanečné melódie</span>
-                            </div>
-                            <div class="offer-detail">
-                                <i class="fas fa-home"></i>
-                                <span>Domáce aj exteriérové akcie</span>
-                            </div>
+                        <div class="offer-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Pôsobnosť: Všade</span>
                         </div>
                     </div>
 
-                    <div class="offer-card">
-                        <div class="offer-icon">
-                            <i class="fas fa-route"></i>
-                        </div>
-                        <h3>Pochody</h3>
-                        <p>Hudobné sprevádzanie rôznych pochodov, sprievodov a slávnostných ceremoniálov.</p>
-                        <div class="offer-details">
-                            <div class="offer-detail">
-                                <i class="fas fa-clock"></i>
-                                <span>Trvanie: 30-60 minút</span>
-                            </div>
-                            <div class="offer-detail">
-                                <i class="fas fa-music"></i>
-                                <span>Repertoár: Maršy, slávnostné piesne</span>
-                            </div>
-                            <div class="offer-detail">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Mestské a obecné slávnosti</span>
-                            </div>
-                        </div>
-                    </div>
+                </div>
 
-                    <div class="offer-card">
-                        <div class="offer-icon">
-                            <i class="fas fa-star"></i>
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Festivaly</h3>
+                    <p>Vystúpenia na hudobných festivaloch.</p>
+                    <div class="offer-details">
+                        <div class="offer-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Trvanie: 45-90 minút</span>
                         </div>
-                        <h3>Festivaly</h3>
-                        <p>Vystúpenia na hudobných festivaloch, kultúrnych podujatiach a slávnostiach.</p>
-                        <div class="offer-details">
-                            <div class="offer-detail">
-                                <i class="fas fa-clock"></i>
-                                <span>Trvanie: 45-90 minút</span>
-                            </div>
-                            <div class="offer-detail">
-                                <i class="fas fa-music"></i>
-                                <span>Repertoár: Festivalové piesne, populárna hudba</span>
-                            </div>
-                            <div class="offer-detail">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>Letné festivaly a kultúrne akcie</span>
-                            </div>
+                        <div class="offer-detail">
+                            <i class="fas fa-music"></i>
+                            <span>Repertoár: Festivalové piesne, klasická dychovka, ľudové piesne</span>
+                        </div>
+                        <div class="offer-detail">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Letné festivaly a kultúrne akcie</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="offers-note">
-                    <div class="note-content">
-                        <i class="fas fa-info-circle"></i>
-                        <div>
-                            <h4>Dôležité informácie</h4>
-                            <p>Pre cenovú ponuku a rezervácie nás kontaktujte. Ceny sa môžu líšiť v závislosti od typu akcie, počtu hudobníkov a vzdialenosti.</p>
-                            <p><strong>Rezervácie:</strong> Odporúčame rezervovať si termín minimálne 2 týždne vopred.</p>
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-pray"></i>
+                    </div>
+                    <h3>Sväté omše</h3>
+                    <p>Hudobné sprevádzanie svätých omší a náboženských obradov v kostoloch.</p>
+                    <div class="offer-details">
+                        <div class="offer-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Trvanie: 60-90 minút</span>
                         </div>
+                        <div class="offer-detail">
+                            <i class="fas fa-music"></i>
+                            <span>Repertoár: Náboženské piesne</span>
+                        </div>
+                        <div class="offer-detail">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Nedele a sviatky</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3>Oslavy a jubileá</h3>
+                    <p>Veselé hudobné sprevádzanie rôznych osláv, jubileí a rodinných udalostí.</p>
+                    <div class="offer-details">
+                        <div class="offer-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Trvanie: 1-2 hodiny</span>
+                        </div>
+                        <div class="offer-detail">
+                            <i class="fas fa-music"></i>
+                            <span>Repertoár: Tanečné melódie</span>
+                        </div>
+                        <div class="offer-detail">
+                            <i class="fas fa-home"></i>
+                            <span>Domáce aj exteriérové akcie</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3>Pochody</h3>
+                    <p>Hudobné sprevádzanie rôznych pochodov, sprievodov a slávnostných ceremoniálov.</p>
+                    <div class="offer-details">
+                        <div class="offer-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Trvanie: 30-60 minút</span>
+                        </div>
+                        <div class="offer-detail">
+                            <i class="fas fa-music"></i>
+                            <span>Repertoár: Pochody, slávnostné piesne, hymny</span>
+                        </div>
+                        <div class="offer-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Mestské a obecné slávnosti, hasičské oslavy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <h3>Pohreby</h3>
+                    <p>Dôstojné hudobné sprevádzanie na poslednú cestu s úctou k zosnulému a jeho rodine.</p>
+                    <div class="offer-details">
+                        <div class="offer-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Trvanie: 30-45 minút</span>
+                        </div>
+                        <div class="offer-detail">
+                            <i class="fas fa-music"></i>
+                            <span>Repertoár: Náboženské piesne, smutné melódie</span>
+                        </div>
+                        <div class="offer-detail">
+                            <i class="fas fa-calendar"></i>
+                            <span>Dostupnosť: 24/7</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="offers-note">
+                <div class="note-content">
+                    <i class="fas fa-info-circle"></i>
+                    <div>
+                        <h4>Dôležité informácie</h4>
+                        <p>Pre cenovú ponuku a rezervácie nás kontaktujte. Ceny sa môžu líšiť v závislosti od typu akcie, počtu hudobníkov a vzdialenosti. Na čase vystúpenia sa dá dohodnúť.</p>
+                        <p><strong>Rezervácie:</strong> Odporúčame rezervovať si termín minimálne 3 týždne vopred.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- History Section -->
-    <section id="history" class="section">
-        <div class="container">
-            <h2>História</h2>
-            <div class="history-content">
-                <div class="history-timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">1925</div>
-                        <div class="timeline-content">
-                            <h3>Založenie orchestru</h3>
-                            <p>Dychová hudba Ordžovianka bola založená v roku 1925 skupinou nadšených hudobníkov z Bratislavy. Prvým dirigentom sa stal Ján Novák.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">1945</div>
-                        <div class="timeline-content">
-                            <h3>Obnovenie činnosti</h3>
-                            <p>Po druhej svetovej vojne sa orchester znovu zjednotil a začal aktívne vystupovať na rôznych kultúrnych podujatiach.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">1975</div>
-                        <div class="timeline-content">
-                            <h3>50. výročie</h3>
-                            <p>Orchester oslávil 50. výročie svojho založenia veľkým jubilejným koncertom v Bratislavskom hradnom divadle.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">2000</div>
-                        <div class="timeline-content">
-                            <h3>Nové tisícročie</h3>
-                            <p>Orchester sa prispôsobil novým hudobným trendom a začal zahŕňať do repertoáru aj moderné skladby.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">2024</div>
-                        <div class="timeline-content">
-                            <h3>Súčasnosť</h3>
-                            <p>Dnes je Dychová hudba Ordžovianka jedným z najuznávanejších amatérskych orchestrov na Slovensku s bohatou tradíciou a kvalitným repertoárom.</p>
-                        </div>
+<!-- History Section -->
+<section id="history" class="section">
+    <div class="container">
+        <h2>História</h2>
+        <div class="history-content">
+            <div class="history-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">1929</div>
+                    <div class="timeline-content">
+                        <h3>Založenie orchestru Ordzovenská banda</h3>
+                        <p>Dychová hudba Ordzovianka bola založená v roku 1929 skupinou nadšených hudobníkov z Ordzovian, ktorý vystupovali najmä na cirkevných akciách.</p>
                     </div>
                 </div>
 
-                <div class="history-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">99</div>
-                        <div class="stat-label">Rokov tradície</div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1961</div>
+                    <div class="timeline-content">
+                        <h3>JRD Studenec</h3>
+                        <p>V tomto období DH Ordzovianka zaznamenala najväčší rozkvet. Zakúpili sa nové hudobné nástroje, kroje, uniformy a notový materiál.</p>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">25</div>
-                        <div class="stat-label">Aktívnych členov</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">1985</div>
+                    <div class="timeline-content">
+                        <h3>Prvý ples DH Ordzovianka</h3>
+                        <p>DH Ordzovanka usporiadala prvý reprezentačný ples, ktorého tradícia sa udržuje až do dodnes.</p>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Koncertov</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2025</div>
+                    <div class="timeline-content">
+                        <h3>Súčasnosť</h3>
+                        <p>Dnes je Dychová hudba Ordzovianka jedným z najuznávanejších amatérskych orchestrov na Východnom Slovensku s bohatou tradíciou a kvalitným repertoárom.</p>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">15</div>
-                        <div class="stat-label">Dirigentov</div>
-                    </div>
+                </div>
+            </div>
+
+            <div class="history-stats">
+                <div class="stat-item">
+                    <div class="stat-number">94</div>
+                    <div class="stat-label">Rokov tradície</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">18</div>
+                    <div class="stat-label">Aktívnych členov</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Koncertov</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Hudobníkov</div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2>Kontakt</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Kontaktné informácie</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Adresa</h4>
-                            <p>Hlavná 123<br>Bratislava, 81101</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Telefón</h4>
-                            <p>+421 2 123 456 78</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>info@ordzovianka.sk</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Zmeny</h4>
-                            <p>Pondelok - Piatok: 18:00 - 21:00<br>Sobota: 14:00 - 17:00</p>
-                        </div>
+<!-- Contact Section -->
+<section id="contact" class="section">
+    <div class="container">
+        <h2>Kontakt</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Kontaktné informácie</h3>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Adresa</h4>
+                        <p>Ordzovany 13<br>053 06, Ordzovany</p>
                     </div>
                 </div>
 
-                <div class="social-section">
-                    <h3>Sledujte nás</h3>
-                    <p>Buďte v kontakte s našou dychovou hudbou cez sociálne siete a dozviete sa o všetkých koncertoch a novinkách ako prví.</p>
-
-                    <div class="social-grid">
-                        <div class="social-item">
-                            <div class="social-icon">
-                                <i class="fab fa-facebook"></i>
-                            </div>
-                            <div class="social-text">Facebook</div>
-                        </div>
-                        <div class="social-item">
-                            <div class="social-icon">
-                                <i class="fab fa-instagram"></i>
-                            </div>
-                            <div class="social-text">Instagram</div>
-                        </div>
-                        <div class="social-item">
-                            <div class="social-icon">
-                                <i class="fab fa-youtube"></i>
-                            </div>
-                            <div class="social-text">YouTube</div>
-                        </div>
-                        <div class="social-item">
-                            <div class="social-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="social-text">Email</div>
-                        </div>
-                    </div>
-
-                    <div class="contact-note">
-                        <i class="fas fa-info-circle"></i>
-                        <p>Pre rezervácie koncertov alebo spoluprácu nás kontaktujte priamo na telefóne alebo emaile.</p>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Telefón</h4>
+                        <p>+421 950 623 897</p>
                     </div>
                 </div>
 
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>dychova.hudba.ordzovianka@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Skúšky</h4>
+                        <p>Pravidelne každý Piatok: 19:00 - 22:30</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-section">
+                <h3>Sledujte nás</h3>
+                <p>Buďte v kontakte s našou dychovou hudbou cez sociálne siete a dozviete sa o všetkých koncertoch a novinkách ako prví.</p>
+
+                <div class="social-grid">
+                    <a href="https://www.facebook.com/DHOrdzovianka/" target="_blank" class="social-item">
+                        <div class="social-icon">
+                            <i class="fab fa-facebook"></i>
+                        </div>
+                        <div class="social-text">Facebook</div>
+                    </a>
+                    <a href="https://www.instagram.com/ordzovianka/" target="_blank" class="social-item">
+                        <div class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="social-text">Instagram</div>
+                    </a>
+                    <a href="https://www.youtube.com/@DHOrdzovianka" target="_blank" class="social-item">
+                        <div class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <div class="social-text">YouTube</div>
+                    </a>
+                    <a href="mailto:dychova.hudba.ordzovianka@gmail.com" class="social-item">
+                        <div class="social-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="social-text">Email</div>
+                    </a>
+                </div>
+
+                <div class="contact-note">
+                    <i class="fas fa-info-circle"></i>
+                    <p>Pre rezervácie koncertov alebo spoluprácu nás kontaktujte priamo na telefóne alebo emaile.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>DH Ordzovianka</h4>
+                <p>Tradícia, kvalita a vášeň pre hudbu už takmer 100 rokov.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Rýchle odkazy</h4>
+                <ul>
+                    <li><a href="#" onclick="showSection('home'); updateActiveNavLink(document.querySelector('a[href=\'#home\']')); return false;">Domov</a></li>
+                    <li><a href="#" onclick="showSection('concerts'); updateActiveNavLink(document.querySelector('a[href=\'#concerts\']')); return false;">Koncerty</a></li>
+                    <li><a href="#" onclick="showSection('offers'); updateActiveNavLink(document.querySelector('a[href=\'#offers\']')); return false;">Ponuky</a></li>
+                    <li><a href="#" onclick="showSection('history'); updateActiveNavLink(document.querySelector('a[href=\'#history\']')); return false;">História</a></li>
+                    <li><a href="#" onclick="showSection('contact'); updateActiveNavLink(document.querySelector('a[href=\'#contact\']')); return false;">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Sledujte nás</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/DHOrdzovianka/"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/ordzovianka/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@DHOrdzovianka"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>DH Ordzovianka</h4>
-                    <p>Tradícia, kvalita a vášeň pre hudbu už takmer 100 rokov.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Rýchle odkazy</h4>
-                    <ul>
-                        <li><a href="#" onclick="showSection('home'); updateActiveNavLink(document.querySelector('a[href=\'#home\']')); return false;">Domov</a></li>
-                        <li><a href="#" onclick="showSection('concerts'); updateActiveNavLink(document.querySelector('a[href=\'#concerts\']')); return false;">Koncerty</a></li>
-                        <li><a href="#" onclick="showSection('offers'); updateActiveNavLink(document.querySelector('a[href=\'#offers\']')); return false;">Ponuky</a></li>
-                        <li><a href="#" onclick="showSection('history'); updateActiveNavLink(document.querySelector('a[href=\'#history\']')); return false;">História</a></li>
-                        <li><a href="#" onclick="showSection('contact'); updateActiveNavLink(document.querySelector('a[href=\'#contact\']')); return false;">Kontakt</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Sledujte nás</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 DH Ordzovianka. Všetky práva vyhradené.</p>
-            </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DH Ordzovianka. Všetky práva vyhradené.</p>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
 
