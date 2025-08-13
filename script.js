@@ -64,8 +64,9 @@ let currentYear = currentDate.getFullYear();
 // Sample concert data
 const concerts = [
     { date: '2025-08-08', title: 'Koncert Furmanovi - súkromný koncert', location: 'Ordzovany', time: '19:30 - 22:30' },
-    { date: '2025-08-10', title: 'Letný koncert v Bardejove', location: 'Bardejov', time: '13:00 - 15:00' }
 ];
+
+const rehearsal = { title: 'Skúška DH', location: 'Ordzovany 13 - skúšobňa (škôlka)', time: '20:00 - 21:30' };
 
 function generateCalendar(month, year) {
     const firstDay = new Date(year, month, 1);
@@ -111,10 +112,17 @@ function generateCalendar(month, year) {
         // Check if this day has a concert
         const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
         const hasConcert = concerts.some(concert => concert.date === dateString);
-        
+        const isFriday = new Date(dateString).getDay() === 5;
+
+
         if (hasConcert) {
             dayElement.classList.add('has-concert');
             dayElement.title = `Koncert: ${concerts.find(concert => concert.date === dateString).title}`;
+        }
+
+        if(isFriday && !hasConcert) {
+            dayElement.classList.add('is-rehearsal');
+            dayElement.title = `Skúška`;
         }
         
         // Highlight today
@@ -206,6 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Add some interactive features
     addConcertDetails();
+    addRehearsalDetails();
     
     // Debug logo loading
     const logoImages = document.querySelectorAll('img[src*="logo"]');
@@ -224,18 +233,38 @@ document.addEventListener('DOMContentLoaded', () => {
 // Add concert details to calendar days
 function addConcertDetails() {
     const calendarDays = document.querySelectorAll('.calendar-day.has-concert');
-    
     calendarDays.forEach(day => {
         day.addEventListener('click', () => {
             const dayNumber = day.textContent;
             const month = currentMonth + 1;
             const year = currentYear;
             const dateString = `${year}-${String(month).padStart(2, '0')}-${String(dayNumber).padStart(2, '0')}`;
-            
             const concert = concerts.find(c => c.date === dateString);
             if (concert) {
                 showConcertModal(concert);
             }
+
+        });
+    });
+}
+
+function addRehearsalDetails() {
+    const calendarDays = document.querySelectorAll('.calendar-day.is-rehearsal');
+
+    calendarDays.forEach(day => {
+        day.addEventListener('click', () => {
+            const dayNumber = day.textContent;
+            const month = currentMonth + 1;
+            const year = currentYear;
+            const dateString = `${year}-${String(month).padStart(2, '0')}-${String(dayNumber).padStart(2, '0')}`;
+            const isFriday = new Date(dateString).getDay() === 5;
+
+            const concert = concerts.find(c => c.date === dateString);
+            if(isFriday && !concert) {
+                console.log(isFriday);
+                showRehearsalModal(dateString);
+            }
+
         });
     });
 }
@@ -250,6 +279,7 @@ function updateCalendarClickEvents() {
     
     // Add new event listeners
     addConcertDetails();
+    addRehearsalDetails();
 }
 
 // Simple modal for concert details
@@ -298,6 +328,61 @@ function showConcertModal(concert) {
     modal.appendChild(modalContent);
     document.body.appendChild(modal);
     
+    // Close modal when clicking outside
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.remove();
+        }
+    });
+}
+
+
+function showRehearsalModal(date) {
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+    `;
+
+    const modalContent = document.createElement('div');
+    modalContent.style.cssText = `
+        background: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        max-width: 400px;
+        text-align: center;
+        position: relative;
+    `;
+
+    console.log("Reharshal");
+
+    modalContent.innerHTML = `
+        <h3 style="color: var(--secondary-blue); margin-bottom: 1rem;">${rehearsal.title}</h3>
+        <p><strong>Dátum:</strong> ${formatDate(date)}</p>
+        <p><strong>Miesto:</strong> ${rehearsal.location}</p><p><strong>Čas:</strong> ${rehearsal.time}</p>
+        <button onclick="this.closest('.modal').remove()" style="
+            background: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            cursor: pointer;
+        ">Zavrieť</button>
+    `;
+
+    modal.className = 'modal';
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+
     // Close modal when clicking outside
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {

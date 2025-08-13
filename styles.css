@@ -397,6 +397,13 @@ p {
     font-weight: 700;
 }
 
+.calendar-day.is-rehearsal {
+    background: var(--white);
+    font-weight: 700;
+    border: 2px solid var(--secondary-blue);
+    box-sizing: border-box;
+}
+
 .calendar-day.other-month {
     color: var(--gray-400);
     background: var(--gray-100);
@@ -425,6 +432,16 @@ p {
     transition: all 0.3s ease;
 }
 
+.rehearsal-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--gray-50);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--secondary-blue);
+    transition: all 0.3s ease;
+}
+
 .concert-item:hover {
     transform: translateX(5px);
     box-shadow: var(--shadow-md);
@@ -441,6 +458,30 @@ p {
     border-radius: var(--radius-md);
     padding: 1rem;
     box-shadow: var(--shadow-sm);
+}
+
+.rehearsal-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
+    background: var(--secondary-blue);
+    color: var(--white);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.rehearsal-date .day {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.rehearsal-date .month {
+    font-size: 0.85rem;
+    text-transform: uppercase;
 }
 
 .concert-date .day {
